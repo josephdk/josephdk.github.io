@@ -19,6 +19,7 @@ function assign(selectedDigit) {
     } else {
       calculate(finalDigits);
       console.log(result);
+      document.getElementById('result').innerHTML = result;
       finalDigits = null;
     }
   } else if(!finalDigits) {
@@ -39,27 +40,27 @@ function calculate(dig) {
     result = Number(result) + Number(dig);
   } else if (firstOperator === "-"){
    if(!result){
-      result = firstNumber - dig;
+      result = Number(firstNumber) - Number(dig);
       return;
     }
-    result = result - dig;
+    result = Number(result) - Number(dig);
   } else if (firstOperator === "*"){
    if(!result){
-      result = firstNumber * dig;
+      result = Number(firstNumber) * Number(dig);
       return;
     }
-    result = result * dig;
+    result = Number(result) * Number(dig);
   } else if (firstOperator === "/"){
    if(!result){
-      result = firstNumber / dig;
+      result = Number(firstNumber) / Number(dig);
       return;
     }
-    result = result / dig;
+    result = Number(result) / Number(dig);
   }
 }
 
 function results() {
-  if (!firstOperator){
+  if (!firstOperator || !firstNumber){
     return;
   }
   calculate(finalDigits);
