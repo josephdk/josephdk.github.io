@@ -59,8 +59,19 @@ function calculate(dig) {
 }
 
 function results() {
+  if (!firstOperator){
+    return;
+  }
   calculate(finalDigits);
   document.getElementById('result').innerHTML = result;
   firstOperator = null;
   firstNumber = null;
+}
+
+function clearCalculator() {
+  result = null;
+  firstOperator = null;
+  firstNumber = null;
+  finalDigits = null;
+  document.getElementById('result').innerHTML = '0';
 }
