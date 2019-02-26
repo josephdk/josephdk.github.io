@@ -18,6 +18,7 @@ function assign(selectedDigit) {
       finalDigits = null;
     } else {
       calculate(finalDigits);
+      firstOperator = selectedDigit;
       console.log(result);
       document.getElementById('result').innerHTML = result;
       finalDigits = null;
